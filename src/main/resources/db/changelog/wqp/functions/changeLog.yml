@@ -5,3 +5,6 @@ databaseChangeLog:
   - include:
       file: "transformPublicSrsnames/changeLog.yml"
       relativeToChangelogFile: true
+  - include:
+      file: "dmsToGeometry/changeLog.yml"
+      relativeToChangelogFile: true

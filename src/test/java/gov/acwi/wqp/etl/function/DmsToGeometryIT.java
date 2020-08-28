@@ -1,6 +1,7 @@
 package gov.acwi.wqp.etl.function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -9,27 +10,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
-import org.springframework.batch.core.job.flow.Flow;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import gov.acwi.wqp.etl.NwisBaseFlowIT;
-import liquibase.pro.packaged.ba;
 
-//	@DatabaseSetup(connection = CONNECTION_NWIS)
 @DatabaseSetup(connection = "nwis", value = "classpath:/testData/nwis/nwisDistrictCdsByHost/nwisDistrictCdsByHost.xml")
 public class DmsToGeometryIT extends NwisBaseFlowIT {
-	@Autowired
-	@Qualifier("orgDataFlow")
-	private Flow orgDataFlow;
-
 	protected String sqlTemplate = "select ST_X(geom) long,  ST_Y(geom) lat from ("
 			+ "select dms_to_geometry('%s', '%s') geom) a";
 
-	// test cases covering the different lengths of dms longitute and latitude trings
+	// test cases covering the different lengths of dms longitute and latitude Strings
 	protected TestCase[] testCases = { tc("0773337.819", -77.5605053, "353113.665", 35.5204625),
 			tc("1704659.38", -170.7831611, "-141929.17", -14.3247694),
 			tc("0835603.77", -83.9343806, "341842.73", 34.3118694),
@@ -49,16 +39,21 @@ public class DmsToGeometryIT extends NwisBaseFlowIT {
 	// test cases covering some well know or edge values
 	protected TestCase[] wellKnowInputCases = { tc("0000000.0", 0.0, "000000", 0.0),
 			tc("903000.0", -90.50, "904500", 90.75), tc("1795959.99", -179.9999972, "895959.0", 89.9997222),
-			tc("1795959", -180.00, "895959", 90.00) };
+			tc("1795959", -180.00, "895959", 90.00), tc("1800000", -180.0, "900000", 90.0),
+			tc("-1800000.0", 180.0, "900000.0", 90.0) };
 
 	// test cases where function is called with a null parameter.
 	protected TestCase[] nullParamTestCases = { tc("null", null, "000000", null), tc("0000000.0", null, "null", null),
 			tc("null", null, "null", null) };
 
+	// test cases where longitude or latitude is out of bounds
+	protected TestCase[] rangeTestCases = { tc("1800000.1", null, "450000", null),
+			tc("-1800000.1", null, "4500000", null), tc("900000", null, "900000.1", null),
+			tc("900000", null, "-900000.1", null) };
+
 	@Test
 	public void dmsToGeometryTest() {
 		try {
-			System.out.println("IN dmsToGemoteryTest");
 			for (TestCase testCase : allTestCases()) {
 				String sql = String.format(sqlTemplate, testCase.dms_long, testCase.dms_lat).replace("'null'", "null");
 				Map<String, Object> rowSet = jdbcTemplate.queryForMap(sql);
@@ -67,12 +62,14 @@ public class DmsToGeometryIT extends NwisBaseFlowIT {
 				if (testCase.expected_dec_long_va == null) {
 					assertNull(rowSet.get("long"));
 				} else {
+					assertNotNull(rowSet.get("long"), "Expected value for longitude, got null: " + testCase);
 					assertTrue(rowSet.get("long") instanceof Double);
 					assertEquals(testCase.expected_dec_long_va, rowSet.get("long"), "longitude off: " + testCase);
 				}
 				if (testCase.expected_dec_lat_va == null) {
 					assertNull(rowSet.get("lat"));
 				} else {
+					assertNotNull(rowSet.get("lat"), "Expected value for latitude, got null: " + testCase);
 					assertTrue(rowSet.get("lat") instanceof Double);
 					assertEquals(testCase.expected_dec_lat_va, rowSet.get("lat"), "latitude off: " + testCase);
 				}
@@ -89,6 +86,7 @@ public class DmsToGeometryIT extends NwisBaseFlowIT {
 		cases.addAll(Arrays.asList(badInputCases));
 		cases.addAll(Arrays.asList(wellKnowInputCases));
 		cases.addAll(Arrays.asList(nullParamTestCases));
+		cases.addAll(Arrays.asList(rangeTestCases));
 		return cases;
 	}
 

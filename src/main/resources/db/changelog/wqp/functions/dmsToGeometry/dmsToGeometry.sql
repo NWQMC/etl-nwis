@@ -49,7 +49,7 @@ BEGIN
    minutes := substring(long_va from (degStart + degLen) for 2)::numeric;
    seconds := substring(long_va from (degStart + degLen + 2))::numeric;
    degDecimalLong := degrees + (minutes/60.0) + (seconds/3600.0);
-   If degStart = 1 Then
+   if degStart = 1 Then
        -- make negative (flip input positive to negative)
        degDecimalLong := degDecimalLong * (-1.0);
    end if;
@@ -57,6 +57,9 @@ BEGIN
      degDecimalLong := round(degDecimalLong, 7);
    else
      degDecimalLong := round(degDecimalLong, 2);
+   end if;
+   if degDecimalLong < -180.0 or degDecimalLong > 180.0 then
+      return null;
    end if;
 
    -- calculate latitude, numeric part before decimal is 2 digits
@@ -75,6 +78,9 @@ BEGIN
      degDecimalLat := round(degDecimalLat, 7);
    else
      degDecimalLat := round(degDecimalLat, 2);
+   end if;
+   if degDecimalLat < -90.0 or degDecimalLat > 90.0 then
+      return null;
    end if;
 
    return st_SetSrid(st_MakePoint(degDecimalLong, degDecimalLat), 4269);

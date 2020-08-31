@@ -38,7 +38,7 @@ public class DmsToGeometryIT extends NwisBaseFlowIT {
 
 	// test cases covering some well know or edge values
 	protected TestCase[] wellKnowInputCases = { tc("0000000.0", 0.0, "000000", 0.0),
-			tc("903000.0", -90.50, "904500", 90.75), tc("1795959.99", -179.9999972, "895959.0", 89.9997222),
+			tc("903000.0", -90.50, "804500", 80.75), tc("1795959.99", -179.9999972, "895959.0", 89.9997222),
 			tc("1795959", -180.00, "895959", 90.00), tc("1800000", -180.0, "900000", 90.0),
 			tc("-1800000.0", 180.0, "900000.0", 90.0) };
 
@@ -49,7 +49,7 @@ public class DmsToGeometryIT extends NwisBaseFlowIT {
 	// test cases where longitude or latitude is out of bounds
 	protected TestCase[] rangeTestCases = { tc("1800000.1", null, "450000", null),
 			tc("-1800000.1", null, "4500000", null), tc("900000", null, "900000.1", null),
-			tc("900000", null, "-900000.1", null) };
+			tc("900000", null, "-900000.1", null), tc("903000.0", null, "904500", null) };
 
 	@Test
 	public void dmsToGeometryTest() {

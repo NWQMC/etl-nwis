@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - preConditions:
+      - dbms:
+          type: postgresql
+
+  - changeSet:
+      author: eorosz
+      id: "create.function.dms_to_geometry"
+      comment: Converts Degrees Minutes Seconds to Postgresql geometeric Point
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: dmsToGeometry.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+        - rollback: drop function if exists dms_to_geometry();

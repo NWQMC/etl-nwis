@@ -66,18 +66,16 @@ with sitefile as (select sitefile.site_no site_identification_number,
                          sitefile.aqfr_type_cd,
                          sitefile.depth_src_cd,
                          case
-                             when sitefile.dec_long_va is not null and sitefile.dec_lat_va is not null
+                             when sitefile.dec_long_va <> 0 and sitefile.dec_lat_va  <> 0
                                  then st_SetSrid(st_MakePoint(dec_long_va, dec_lat_va), 4269)
-                             else null
+                             else dms_to_geometry(long_va, lat_va)
                          end geom,
                          sitefile.nwis_host,
                          sitefile.db_no,
                          sitefile.site_web_cd,
                          coalesce(sitefile.agency_cd, '') || '-' || coalesce(sitefile.site_no, '') monitoring_location_identifier
                     from nwis.sitefile
-                   where sitefile.dec_lat_va <> 0 and
-                         sitefile.dec_long_va <> 0 and
-                         sitefile.site_web_cd = 'Y' and
+                   where sitefile.site_web_cd = 'Y' and
                          sitefile.db_no = '01' and
                          sitefile.nwis_host not in ('fltlhsr001', 'fltpasr001', 'flalssr003') and
                          sitefile.country_cd != 'CN'

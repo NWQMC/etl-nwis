@@ -38,10 +38,10 @@ with sitefile as (select sitefile.site_no site_identification_number,
                          case when sitefile.hole_depth_va in ('.', '-') then '0' else sitefile.hole_depth_va end hole_depth,
                          sitefile.depth_src_cd source_of_hole_depth,
                          sitefile.project_no project_numer,
-                         sitefile.site_id,
+                         sitefile.site_id, 
                           case 
-                            when sitefile.site_active_fg = '0' then false
-                            when sitefile.site_active_fg = '1' then true 
+                            when sitefile.site_active = '0' then false
+                            when sitefile.site_active = '1' then true 
                             else null
                           end site_active,
                          sitefile.agency_cd,

@@ -104,6 +104,7 @@
 "prj_ml_weighting_nwis","prj_ml_weighting_nwis_station_id","CREATE INDEX prj_ml_weighting_nwis_station_id ON wqp.prj_ml_weighting_nwis USING btree (station_id) WITH (fillfactor='100')"
 "project_data_nwis","project_data_nwis_organization","CREATE INDEX project_data_nwis_organization ON wqp.project_data_nwis USING btree (organization) WITH (fillfactor='100')"
 "project_data_nwis","project_data_nwis_project_identifier","CREATE INDEX project_data_nwis_project_identifier ON wqp.project_data_nwis USING btree (project_identifier) WITH (fillfactor='100')"
+"project_dim_nwis","project_dim_nwis_data_source_id","CREATE INDEX project_dim_nwis_data_source_id ON wqp.project_dim_nwis USING btree (data_source_id) WITH (fillfactor='100')"
 "project_dim_nwis","project_dim_nwis_code_value","CREATE INDEX project_dim_nwis_code_value ON wqp.project_dim_nwis USING btree (code_value) WITH (fillfactor='100')"
 "project_dim_nwis","project_dim_nwis_project_dim_value","CREATE INDEX project_dim_nwis_project_dim_value ON wqp.project_dim_nwis USING btree (project_dim_value) WITH (fillfactor='100')"
 "project_object_nwis","project_object_nwis_organization","CREATE INDEX project_object_nwis_organization ON wqp.project_object_nwis USING btree (organization) WITH (fillfactor='100')"

@@ -74,7 +74,7 @@ public class TransformSitefile {
 						+ "site_cr, site_mn, site_md, "
 						+ "lat_va, long_va, coord_datum_cd, map_nm, topo_cd, instruments_cd, "
 						+ "inventory_dt, tz_cd, local_time_fg, reliability_cd, "
-						+ "gw_file_cd, depth_src_cd, project_no) VALUES ("
+						+ "gw_file_cd, depth_src_cd, project_no, site_active) VALUES ("
 						+ ":siteId, :agencyCd, :siteNo, :nwisHost, :dbNo, :stationNm, "
 						+ ":decLatVa, :decLongVa, :coordMethCd, :coordAcyCd, :districtCd, "
 						+ ":countryCd, :stateCd, :countyCd, :landNetDs, :mapScaleFc, "
@@ -85,7 +85,7 @@ public class TransformSitefile {
 						+ ":siteCr, :siteMn, :siteMd, "
 						+ ":latVa, :longVa, :coordDatumCd, :mapNm, :topoCd, :instrumentsCd,"
 						+ ":inventoryDt, :tzCd, :localTimeFg, :reliabilityCd, "
-						+ ":gwFileCd, :depthSrcCd, :projectNo)")
+						+ ":gwFileCd, :depthSrcCd, :projectNo, :siteActiveFg)")
 				.dataSource(dataSourceNwis)
 				.build();
 	}

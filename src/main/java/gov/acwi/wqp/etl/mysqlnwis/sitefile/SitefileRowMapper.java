@@ -58,6 +58,7 @@ public class SitefileRowMapper implements RowMapper<Sitefile> {
 	public static final String GW_FILE_CD_COLUMN_NAME = "gw_file_cd";
 	public static final String DEPTH_SRC_CD_COLUMN_NAME = "depth_src_cd";
 	public static final String PROJECT_NO_COLUMN_NAME = "project_no";
+	public static final String SITE_ACTIVE_FG_COLUMN_NAME = "site_active_fg";
 
 	public Sitefile mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Sitefile sitefile = new Sitefile();
@@ -114,7 +115,7 @@ public class SitefileRowMapper implements RowMapper<Sitefile> {
 		sitefile.setGwFileCd(rs.getString(GW_FILE_CD_COLUMN_NAME));
 		sitefile.setDepthSrcCd(rs.getString(DEPTH_SRC_CD_COLUMN_NAME));
 		sitefile.setProjectNo(rs.getString(PROJECT_NO_COLUMN_NAME));
-
+		sitefile.setSiteActiveFg(rs.getString(SITE_ACTIVE_FG_COLUMN_NAME));
 		return sitefile;
 	}
 }

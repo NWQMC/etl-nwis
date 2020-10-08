@@ -58,6 +58,7 @@ public class Sitefile {
 	private String gwFileCd;
 	private String depthSrcCd;
 	private String projectNo;
+	private String siteActiveFg;
 	public int getSiteId() {
 		return siteId;
 	}
@@ -363,5 +364,11 @@ public class Sitefile {
 	}
 	public void setProjectNo(String projectNo) {
 		this.projectNo = projectNo;
+	}
+	public String getSiteActiveFg() {
+		return siteActiveFg;
+	}
+	public void setSiteActiveFg(String siteActiveFg) {
+		this.siteActiveFg = siteActiveFg;
 	}
 }

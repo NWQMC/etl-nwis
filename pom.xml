@@ -9,7 +9,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
-        <wma.maven.url>https://artifactory.wma.usgs.gov/artifactory</wma.maven.url>
+        <wma.maven.url>https://artifactory.wma.chs.usgs.gov/artifactory</wma.maven.url>
         <wqp-etl-core.version>0.2.1</wqp-etl-core.version>
     </properties>
 

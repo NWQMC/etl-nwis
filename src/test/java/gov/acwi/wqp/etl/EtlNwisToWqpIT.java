@@ -55,7 +55,6 @@ public class EtlNwisToWqpIT extends NwisBaseFlowIT {
 	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/bodyPart/bodyPart.xml")
 	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/county/")
 	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/dataReliability/")
-	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/discreteGroundWater/")
 	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/fxd/fxd.xml")
 	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/gwLevelAccuracy/")
 	@DatabaseSetup(connection = CONNECTION_NWIS, value = "classpath:/testData/nwis/gwLevelDateTimeAccuracy/")
@@ -136,11 +135,6 @@ public class EtlNwisToWqpIT extends NwisBaseFlowIT {
 	@ExpectedDatabase(value = "classpath:/testResult/endToEnd/resDetectQntLimit.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
 	@ExpectedDatabase(value = "classpath:/testResult/endToEnd/projectMLWeighting.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
 	@ExpectedDatabase(value = "classpath:/testResult/wqp/publicSrsnames/publicSrsnames.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
-	@ExpectedDatabase(
-			connection=CONNECTION_NWIS,
-			value="classpath:/testResult/nwis/discreteGroundWater/",
-			assertionMode=DatabaseAssertionMode.NON_STRICT_UNORDERED
-			)
 
 	//Summaries Data
 	@ExpectedDatabase(value = "classpath:/testResult/endToEnd/activitySum.xml", assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)

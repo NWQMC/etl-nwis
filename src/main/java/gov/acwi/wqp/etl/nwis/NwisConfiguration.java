@@ -19,16 +19,11 @@ public class NwisConfiguration {
 	@Qualifier("nwisMonitoringLocationFlow")
 	private Flow nwisMonitoringLocationFlow;
 
-	@Autowired
-	@Qualifier("nwisDiscreteGroundWaterFlow")
-	private Flow nwisDiscreteGroundWaterFlow;
-
 	@Bean
 	public Flow nwisFlow() {
 		return new FlowBuilder<SimpleFlow>("nwisFlow")
 				.start(sampleParameterFlow)
 				.next(nwisMonitoringLocationFlow)
-				.next(nwisDiscreteGroundWaterFlow)
 				.build();
 	}
 }

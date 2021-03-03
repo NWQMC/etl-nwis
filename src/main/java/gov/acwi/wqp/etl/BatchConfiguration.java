@@ -16,6 +16,9 @@ import org.springframework.context.annotation.Configuration;
 public class BatchConfiguration {
 
 	@Autowired
+	ConcurrentDbStepsUtil concurrentDbStepsUtil;
+
+	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 
 	@Autowired
@@ -122,6 +125,7 @@ public class BatchConfiguration {
 	@Bean
 	public Job nwisEtl() {
 		return jobBuilderFactory.get("WQP_NWIS_ETL")
+				.listener(concurrentDbStepsUtil) /* Required to shutdown the Threadpool, otherwise it hangs on completion */
 				.start(mySqlNwisExtractFlow)
 				.next(nwisToWqpFlow())
 				.build()

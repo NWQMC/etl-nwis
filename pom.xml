@@ -9,7 +9,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
-        <wqp-etl-core.version>0.2.2</wqp-etl-core.version>
+        <wqp-etl-core.version>0.2.3</wqp-etl-core.version>
     </properties>
 
     <scm>

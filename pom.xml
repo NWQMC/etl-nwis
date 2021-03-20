@@ -15,7 +15,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/NWQMC/etl-nwis.git</connection>
-        <developerConnection>scm:git:git@github.com:NWQMC/etl-nwis.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/NWQMC/etl-nwis.git</developerConnection>
         <url>https://github.com/NWQMC/etl-nwis.git</url>
         <tag>HEAD</tag>
     </scm>

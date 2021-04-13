@@ -12,6 +12,11 @@ spring:
     username: ${WQP_SCHEMA_OWNER_USERNAME}
     password: ${WQP_SCHEMA_OWNER_PASSWORD}
 
+  datasource-wqx:
+    url: jdbc:postgresql://${WQP_DATABASE_ADDRESS}:${WQP_DATABASE_PORT}/${WQP_DATABASE_NAME}
+    username: ${EPA_SCHEMA_OWNER_USERNAME}
+    password: ${EPA_SCHEMA_OWNER_PASSWORD}
+
   datasource-nwis:
     url: jdbc:postgresql://${NWIS_DATABASE_ADDRESS}:${NWIS_DATABASE_PORT}/${NWIS_DATABASE_NAME}
     username: ${NWIS_SCHEMA_OWNER_USERNAME}

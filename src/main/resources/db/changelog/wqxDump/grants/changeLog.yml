@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - preConditions:
+      - dbms:
+          type: postgresql
+
+  - changeSet:
+      author: eorosz
+      id: "grant.select.all.tables.${WQX_DUMP_SCHEMA_NAME}.to.${NWIS_SCHEMA_OWNER_USERNAME}"
+      comment: "Need to grant select on all the tables in the schema because tables in wqx_dump
+        are deleted by the wqx load and a newly created by pg_restore. Postgres loses grants on the old table."
+      changes:
+        - sql:
+            sql: grant select on all tables in schema ${WQX_DUMP_SCHEMA_NAME} to ${NWIS_SCHEMA_OWNER_USERNAME}
+        - rollback: revoke grant select on all tables in schema ${WQX_DUMP_SCHEMA_NAME} to ${NWIS_SCHEMA_OWNER_USERNAME}

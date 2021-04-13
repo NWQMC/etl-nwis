@@ -1,0 +1,23 @@
+"CHRGRP_UID","CHRGRP_NAME","CHRGRP_LAST_CHANGE_DATE","USR_UID_LAST_CHANGE","CHRGRP_DESC"
+20,"PFAS,Perfluorinated Alkyl Substance",2020-04-09 08:41:19,100,null
+1060,"PFOS, Perfluorooctane Sulfonate",2020-06-19 11:06:09,100,"renamed from PFOA, Perfluorooctanoic Acid"
+1,Not Assigned,2018-06-15 09:44:33,1,null
+2,Biological,2018-06-15 09:44:33,1,null
+3,Habitat,2018-06-15 09:44:33,1,null
+4,Information,2018-06-15 09:44:33,1,null
+5,"Inorganics, Major, Metals",2018-06-15 09:44:33,1,null
+6,"Inorganics, Major, Non-metals",2018-06-15 09:44:33,1,null
+7,"Inorganics, Minor, Metals",2018-06-15 09:44:33,1,null
+8,"Inorganics, Minor, Non-metals",2018-06-15 09:44:33,1,null
+9,Microbiological,2018-06-15 09:44:33,1,null
+10,Nutrient,2018-06-15 09:44:33,1,null
+11,"Organics, Other",2018-06-15 09:44:33,1,null
+12,"Organics, PCBs",2018-06-15 09:44:33,1,null
+13,"Organics, Pesticide",2018-06-15 09:44:33,1,null
+14,Physical,2018-06-15 09:44:33,1,null
+15,Population/Community,2018-06-15 09:44:33,1,null
+16,Radiochemical,2018-06-15 09:44:33,1,null
+17,Sediment,2018-06-15 09:44:33,1,null
+18,Stable Isotopes,2018-06-15 09:44:33,1,null
+19,Toxicity,2018-06-15 09:44:33,1,null
+1040,"PFOA, Perfluorooctanoic Acid",2020-06-19 11:06:09,100,"renamed from PFOS, Perfluorooctane Sulfonate"

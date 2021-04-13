@@ -7,19 +7,21 @@ import org.springframework.context.annotation.Import;
 
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-@Import({DBTestConfig.class, NwisDBTestConfig.class})
+@Import({DBTestConfig.class, NwisDBTestConfig.class, WqxDBTestConfig.class})
 @DbUnitConfiguration(
 		databaseConnection={
 				BaseFlowIT.CONNECTION_WQP,
 				BaseFlowIT.CONNECTION_NWIS,
 				BaseFlowIT.CONNECTION_INFORMATION_SCHEMA,
-				NwisBaseFlowIT.CONNECTION_MYSQLNWIS
+				NwisBaseFlowIT.CONNECTION_MYSQLNWIS,
+				NwisBaseFlowIT.CONNECTION_WQX_DUMP
 				},
 		dataSetLoader=FileSensingDataSetLoader.class
 )
 public abstract class NwisBaseFlowIT extends BaseFlowIT{
 
 	protected static final String CONNECTION_MYSQLNWIS = "mysqlnwis";
+	protected static final String CONNECTION_WQX_DUMP = "wqxDump";
 
 	@Autowired
 	private ConfigurationService configurationService;

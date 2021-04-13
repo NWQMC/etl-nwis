@@ -1,0 +1,24 @@
+"CHR_UID","CHR_NAME","CHR_SRS_ID","CHR_STORET_ID","CHR_SAMPLE_FRACTION_REQ_YN","CHR_PICK_LIST_YN","CHR_LAST_CHANGE_DATE","CHR_CAS_NUMBER","CHR_DESCRIPTION","USR_UID_LAST_CHANGE","CHRGRP_UID","DVSTA_UID","CHR_METHOD_SPECIATION_REQ_YN","CHR_ANALYTICAL_METHOD_REQ_YN","CHR_NAME_CLEAN"
+544,"Alkalinity, total",1640192,15840,N,N,2014-07-22 00:00:00,null,; Request Date: 22-JUL-14,1,14,1,N,N,null
+4684,Ammonia and ammonium,966655,1273,Y,N,2013-08-26 08:42:18,null,; Request Date: 26-AUG-13,1,10,1,Y,Y,null
+686,"Biochemical oxygen demand, standard conditions",1640606,34,N,N,2014-07-22 00:00:00,null,; Request Date: 22-JUL-14,1,14,1,N,N,null
+738,Carbon dioxide,33548,81,Y,N,2007-03-02 08:40:30,"124-38-9",; Request Date: 02-MAR-07,1,6,1,N,N,null
+773,Chloride,205955,107,Y,N,2007-03-02 08:40:33,"16887-00-6",Nemi.gov; Request Date: 02-MAR-07,1,6,1,N,Y,null
+1097,"Hardness, Ca, Mg",1640416,261,N,N,2014-07-22 00:00:00,null,; Request Date: 22-JUL-14,1,14,1,N,N,null
+23504,Hydrogen ion,182113,null,N,N,2020-07-24 14:37:39,"12408-02-5",null,100,1,1,N,N,null
+1185,Iron,149559,279,Y,N,2020-04-19 13:50:12,"7439-89-6",; Request Date: 02-MAR-07,100,7,1,N,Y,null
+1400,Nitrate,197186,334,Y,N,2014-07-22 00:00:00,"14797-55-8",; Request Date: 22-JUL-14,1,10,1,Y,Y,null
+1483,Oil and Grease,749655,348,Y,N,2020-04-15 16:22:12,null,; Request Date: 02-MAR-07,100,11,1,N,N,null
+1419,Organic Nitrogen,17297623,1275,Y,N,2007-03-13 14:06:00,null,EPA Workgroup QA; Request Date: 13-MAR-07,1,10,1,Y,Y,null
+1506,Oxygen,154302,1316,Y,N,2007-03-02 08:41:31,"7782-44-7",; Request Date: 02-MAR-07,1,6,1,N,N,null
+1648,pH,1644285,1,N,N,2020-04-15 11:52:50,null,Nemi.gov; Request Date: 02-MAR-07,100,14,1,N,N,null
+3000,Phenols,749630,1000310,N,N,2014-07-22 00:00:00,null,; Request Date: 22-JUL-14,1,11,1,N,N,null
+1673,Phosphorus,153049,375,Y,N,2014-07-22 00:00:00,"7723-14-0",; Request Date: 22-JUL-14,1,10,1,Y,Y,null
+1815,Specific conductance,1646694,139,N,N,2007-03-02 08:42:09,null,; Request Date: 02-MAR-07,1,14,1,N,N,null
+2844,"Temperature, air",1645712,605,N,N,2007-03-02 08:42:17,null,; Request Date: 02-MAR-07,1,14,1,N,N,null
+2849,"Temperature, water",1645597,481,N,N,2007-03-02 08:42:18,null,; Request Date: 02-MAR-07,1,14,1,N,N,null
+1906,Total Coliform,761700,11737,N,N,2007-03-02 08:42:23,null,Nemi.gov; Request Date: 02-MAR-07,1,9,1,N,Y,null
+988,Total dissolved solids,1642222,11797,N,N,2020-04-15 12:28:58,null,Nemi.gov; Request Date: 02-MAR-07,100,14,1,N,N,null
+1910,Total solids,1640382,457,N,N,2007-03-02 08:42:23,null,; Request Date: 02-MAR-07,1,14,1,N,N,null
+1911,Total suspended solids,1642818,456,N,N,2020-04-15 12:28:58,null,Nemi.gov; Request Date: 02-MAR-07,100,14,1,N,N,null
+1977,Turbidity,1640507,514,N,N,2020-04-15 12:28:58,null,Nemi.gov; Request Date: 02-MAR-07,100,14,1,N,N,null

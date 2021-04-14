@@ -1,6 +1,0 @@
-code,name,sort_order,description,valid_flag
-D,Day,1,Date is accurate to the Day,true
-h,Hour,4,Date is accurate to the Hour,true
-M,Month,2,Date is accurate to the Month,true
-m,Minute,5,Date is accurate to the Minute,true
-Y,Year,3,Date is accurate to the Year,true

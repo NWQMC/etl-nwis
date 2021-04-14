@@ -1,4 +1,0 @@
-site_id,lev_str_dt,lev_dtm,lev_dt_acy_cd,lev_tz_cd,lev_tz_offset,lev_va,lev_acy_cd,parameter_cd,lev_datum_cd,lev_src_cd,lev_status_cd,lev_meth_cd,lev_agency_cd,lev_age_cd,gw_levels_md
-836167,2018-04-26 15:38,2018-04-26 15:38:00,m,CDT,-5:00,322.20,2,72019,null,A,null,V,MO005,A,2018-07-12 01:07:00
-41664,1977-01-01,1977-01-01 12:00:00,D,UTC, 0:00,15,0,72019,null,D,null,R,null,A,2018-07-05 21:53:31
-2308154,1981-12-28,1981-12-28 12:00:00,D,UTC, 0:00,257,0,72019,null,U,null,L,null,A,2018-07-05 21:53:31

@@ -1,6 +1,0 @@
-code,name,sort_order,description,valid_flag
-0,Nearest Foot,1,Water level accuracy to nearest foot,true
-1,Nearest 1/10 Ft,2,Water level accuracy to nearest tenth of a foot,true
-2,Nearest 1/100 Ft,3,Water level accuracy to nearest hundredth of a foot,true
-9,Not nearest Ft,4,Water level accuracy not to nearest foot,true
-U,Unknown,5,Water level accuracy is unknown,true

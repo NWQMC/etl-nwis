@@ -12,5 +12,9 @@ databaseChangeLog:
       relativeToChangelogFile: true
 
   - include:
+      file: "wqxDump/grants/changeLog.yml"
+      relativeToChangelogFile: true
+
+  - include:
       file: "wqp/functions/changeLog.yml"
       relativeToChangelogFile: true

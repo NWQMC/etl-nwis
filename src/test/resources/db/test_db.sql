@@ -1,3 +1,9 @@
+drop table if exists wqp.result_NWIS_2021010110_MINVALUE_to_1995_01;
+drop table if exists wqp.result_NWIS_2021010110_1995_01_to_2000_01;
+drop table if exists wqp.result_NWIS_2021010110_2000_01_to_2005_01;
+drop table if exists wqp.result_NWIS_2021010110_2005_01_to_2010_01;
+drop table if exists wqp.result_NWIS_2021010110_2010_01_to_2015_01;
+drop table if exists wqp.result_NWIS_2021010110_2015_01_to_maxvalue;
 drop table if exists wqp.org_data_swap_nwis cascade;
 select create_swap_table ('nwis', 'wqp', 'org_data');
 drop table if exists wqp.project_data_swap_nwis cascade;

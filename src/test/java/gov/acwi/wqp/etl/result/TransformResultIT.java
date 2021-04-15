@@ -1,5 +1,6 @@
 package gov.acwi.wqp.etl.result;
 
+import org.junit.jupiter.api.Disabled;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -10,6 +11,7 @@ import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.job.flow.Flow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.TestPropertySource;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
@@ -17,6 +19,14 @@ import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 
 import gov.acwi.wqp.etl.NwisBaseFlowIT;
 
+//See ConfigurationService:
+//Env. Config params to control how result partitions are created, ensuring the partition structure is known & repeatable.
+//ETL_RUN_TIME is used to construct unique partition names and overrides the actual runTime of the ETL job.
+@TestPropertySource(properties = {"ETL_RESULT_PARTITION_START_DATE=1995-01-01",
+                                "ETL_RESULT_PARTITION_ONE_YEAR_BREAK=2020-01-01",
+                                "ETL_RESULT_PARTITION_QUARTER_BREAK=2020-01-01",
+                                "ETL_RESULT_PARTITION_END_DATE=2020-01-01",
+                                "ETL_RUN_TIME=2021-01-01T10:15:30"})
 public class TransformResultIT extends NwisBaseFlowIT {
 
 	public static final String TABLE_NAME = "'result_swap_nwis'";
@@ -54,6 +64,10 @@ public class TransformResultIT extends NwisBaseFlowIT {
 	@DatabaseSetup(
 			connection = CONNECTION_NWIS,
 			value = "classpath:/testData/nwis/qwSample/qwSample.xml")
+	@DatabaseSetup(
+			connection=CONNECTION_WQX_DUMP,
+			value="classpath:/testData/wqxDump/csv/"
+	)
 	@ExpectedDatabase(
 			value = "classpath:/testResult/wqp/result/result.xml",
 			assertionMode = DatabaseAssertionMode.NON_STRICT_UNORDERED)
@@ -67,6 +81,7 @@ public class TransformResultIT extends NwisBaseFlowIT {
 		}
 	}
 
+	@Disabled
 	@Test
 	@DatabaseSetup(value = "classpath:/testData/wqp/result/resultOld.xml")
 	@DatabaseSetup(

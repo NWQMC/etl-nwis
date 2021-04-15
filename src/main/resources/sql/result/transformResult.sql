@@ -22,7 +22,11 @@ select
     nullif(r.parameter_cd, '') p_code,
     activity_swap_nwis.activity,
     coalesce(parm.wqpcrosswalk, parm.srsname) characterstic_name,
-    parm.parm_seq_grp_nm characteristic_type,
+    case
+      when char_group."CHRGRP_NAME" is null then parm.parm_seq_grp_nm
+      when char_group."CHRGRP_NAME" = 'Not Assigned' then parm.parm_seq_grp_nm
+      else char_group."CHRGRP_NAME"
+    end characteristic_type,
     activity_swap_nwis.sample_media,
     activity_swap_nwis.organization,
     activity_swap_nwis.site_type,
@@ -217,6 +221,10 @@ from nwis.qw_result r
               on r.sample_id = activity_swap_nwis.activity_id
          join nwis.parm
               on r.parameter_cd = parm.parm_cd
+         left join wqx_dump."CHARACTERISTIC" char
+              on coalesce(parm.wqpcrosswalk, parm.srsname) = char."CHR_NAME"
+         left join wqx_dump."CHARACTERISTIC_GROUP" char_group
+              on char."CHRGRP_UID"  = char_group."CHRGRP_UID"
          left join nwis.fxd
                    on r.parameter_cd = fxd.parm_cd and
                       case when r.result_va = '0.0' then '0' else r.result_va end = cast(fxd.fxd_va as varchar)

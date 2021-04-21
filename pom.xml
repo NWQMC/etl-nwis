@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.acwi</groupId>
     <artifactId>wqp-etl-nwis</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,7 +15,7 @@
         <connection>scm:git:https://github.com/NWQMC/etl-nwis.git</connection>
         <developerConnection>scm:git:https://github.com/NWQMC/etl-nwis.git</developerConnection>
         <url>https://github.com/NWQMC/etl-nwis.git</url>
-        <tag>HEAD</tag>
+        <tag>wqp-etl-nwis-3.5.1</tag>
     </scm>
 
     <distributionManagement>
